@@ -1,29 +1,32 @@
 var VideoListEntry = (props) => {
-
   var onClickHandler = () => {
     // console.log(this);
     props.clickHandler(props.video);
-  }
+  };
 
-  return <div className="video-list-entry media">
-    <div className="media-left media-middle">
-      <img
-        className="media-object"
-        src={props.video.snippet.thumbnails.default.url.toString()}
-        alt=""
-      />
-    </div>
-    {
-      //? props.data.snippet.title
-      //? props.data.snippet.description
-    }
-    <div className="media-body">
-      <div className="video-list-entry-title" onClick={onClickHandler}>{props.video.snippet.title}</div>
-      <div className="video-list-entry-detail">
-        {props.video.snippet.description}
+  return (
+    <div className="video-list-entry media">
+      <div className="media-left media-middle">
+        <img
+          className="media-object"
+          src={props.video.snippet.thumbnails.default.url.toString()}
+          alt=""
+        />
+      </div>
+      {
+        //? props.data.snippet.title
+        //? props.data.snippet.description
+      }
+      <div className="media-body">
+        <div className="video-list-entry-title" onClick={onClickHandler}>
+          {props.video.snippet.title}
+        </div>
+        <div className="video-list-entry-detail">
+          {props.video.snippet.description}
+        </div>
       </div>
     </div>
-  </div>
+  );
 };
 
 // PropTypes tell other developers what `props` a component expects
