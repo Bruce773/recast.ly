@@ -1,11 +1,22 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(props.videos({'key':YOUTUBE_API_KEY, 'query': 'React'}, (data) => {console.log(data)}));
     this.state = {
-      videos: exampleVideoData,
-      currentVideo: exampleVideoData[1],
+      videos: props.videos,
+      currentVideo: props.videos[0],
     };
   }
+
+  // _searchYoutube(query) {
+  //   var options= {
+  //     key: this.props.API_KEY,
+  //     query: query
+  //   }
+  //   this.setState(() => {
+  //     videos: props.videos()
+  //   })
+  // }
 
   clickHandler(video) {
     // console.log(this);

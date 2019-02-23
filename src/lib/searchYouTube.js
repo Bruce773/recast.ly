@@ -11,7 +11,7 @@ var searchYouTube = (options, callback) => {
       videoEmbeddable: 'true',
     },
     success: function(data) {
-      console.log(data.items);
+      // console.log(data.items);
       callback(data.items);
     },
     error: function(err) {
@@ -23,7 +23,7 @@ var searchYouTube = (options, callback) => {
     optionsObj.maxResults = 5;
   }
 
-  $.get(optionsObj);
+ $.get(optionsObj);
 
 };
 
