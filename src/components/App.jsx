@@ -8,7 +8,7 @@ class App extends React.Component {
     };
   }
 
-  _youTubeSearch(query) {
+  _youTubeSearch(query = 'React JS') {
     var options = {
       key: YOUTUBE_API_KEY,
       query: query,
@@ -22,9 +22,16 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this._youTubeSearch('React JS');
+  _searchOnButtonClick() {
+    var value = document.getElementById('search').value;
+    this._youTubeSearch(value);
+    console.log(value)
   }
+
+  componentDidMount() {
+    this._youTubeSearch();
+  }
+
 
   //! Old code!
   // componentDidMount() {
@@ -43,16 +50,6 @@ class App extends React.Component {
   //   });
   // }
 
-  // _searchYoutube(query) {
-  //   var options= {
-  //     key: this.props.API_KEY,
-  //     query: query
-  //   }
-  //   this.setState(() => {
-  //     videos: props.videos()
-  //   })
-  // }
-
   clickHandler(video) {
     // console.log(this);
     this.setState((state) => ({
@@ -66,9 +63,7 @@ class App extends React.Component {
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
             <div>
-              <h5>
-                <em>search</em> view goes here
-              </h5>
+              <Search _searchOnButtonClick={this._searchOnButtonClick.bind(this)} _youTubeSearch={this._youTubeSearch.bind(this)} />
             </div>
           </div>
         </nav>

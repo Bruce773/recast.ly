@@ -3,7 +3,6 @@ var VideoPlayer = (props) => (
   // console.log(props.state.videoList)
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
-    <div>{console.log(props.video)}</div>
       <iframe
         className="embed-responsive-item"
         src={`https://www.youtube.com/embed/${props.video.id.videoId}`}
