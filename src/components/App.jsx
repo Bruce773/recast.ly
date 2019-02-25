@@ -1,12 +1,47 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props.videos({'key':YOUTUBE_API_KEY, 'query': 'React'}, (data) => {console.log(data)}));
+
     this.state = {
-      videos: props.videos,
-      currentVideo: props.videos[0],
+      videos: exampleVideoData,
+      currentVideo: exampleVideoData[0],
     };
   }
+
+  _youTubeSearch(query) {
+    var options = {
+      key: YOUTUBE_API_KEY,
+      query: query,
+    };
+
+    this.props.searchYouTube(options, (data) => {
+      this.setState({
+        videos: data,
+        currentVideo: data[0],
+      });
+    });
+  }
+
+  componentDidMount() {
+    this._youTubeSearch('React JS');
+  }
+
+  //! Old code!
+  // componentDidMount() {
+  //   this.setState({
+  //     videos: this.props.videos({ key: YOUTUBE_API_KEY, query: 'React' }, (data) => {
+  //       console.log(data);
+  //       return data;
+  //     }),
+  //     currentVideo: this.props.videos(
+  //       { key: YOUTUBE_API_KEY, query: 'React' },
+  //       (data) => {
+  //         console.log(data);
+  //         return data[0];
+  //       }
+  //     ),
+  //   });
+  // }
 
   // _searchYoutube(query) {
   //   var options= {
